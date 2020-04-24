@@ -1,0 +1,44 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "enquiry": {
+    "dataSource": "Enquiry",
+    "public": true
+  },
+  "enquiryTenant": {
+    "dataSource": "Enquiry",
+    "public": false
+  },
+  "kbenquiry": {
+    "dataSource": "Enquiry",
+    "public": false
+  },
+  "enquiries": {
+    "dataSource": "Enquiry",
+    "public": false
+  },
+  "supplier-rates": {
+    "dataSource": "Enquiry",
+    "public": false
+  },
+  "quotes": {
+    "dataSource": null,
+    "public": true
+  },
+  "kb-quotes": {
+    "dataSource": "Enquiry",
+    "public": true
+  }
+}

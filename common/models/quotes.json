@@ -1,0 +1,168 @@
+{
+  "name": "quotes",
+  "plural": "quotes",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "getQuotesByRefId": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "refId",
+          "type": "String",
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "get quotes by reference(Ex: orderId) id",
+      "http": {
+        "path": "/:refId",
+        "verb": "get"
+      }
+    },
+    "confirmQuote": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "quoteId",
+          "type": "String",
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "confirming the quote id",
+      "http": {
+        "path": "/:quoteId/confirm",
+        "verb": "put"
+      }
+    },
+    "getQuotesBySupplierRateId": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "supplierRateId",
+          "type": "String",
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "Getting quote by supplier rate id",
+      "http": {
+        "path": "/by-supplier-rate-id",
+        "verb": "get"
+      }
+    }
+  }
+}

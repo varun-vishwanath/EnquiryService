@@ -1,0 +1,12 @@
+{
+  "Enquiry": {
+    "host": "infra-int.dev.keeboot.com",
+    "port": 3306,
+    "url": "",
+    "database": "kb_enquiry",
+    "password": "mer@tr@nsport",
+    "name": "Enquiry",
+    "user": "root",
+    "connector": "mysql"
+  }
+}

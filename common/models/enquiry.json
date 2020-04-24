@@ -1,0 +1,624 @@
+{
+  "name": "enquiry",
+  "plural": "enquiry",
+  "base": "Model",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": false
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "addEnquiry": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "enquiryData",
+          "type": "object",
+          "description": "provide enquiry related object",
+          "http": {
+            "source": "body"
+          },
+          "default": {
+            "tenantId": "string",
+            "enqSlNoForTenant": 0,
+            "enqDate": "2019-01-13T11:22:51.279Z",
+            "from": "string",
+            "to": "string",
+            "weight": 0
+          },
+          "required": true
+        }
+      ],
+      "returns": {
+        "type": "object",
+        "root": true
+      },
+      "description": "create enquiry tenant specific",
+      "http": {
+        "path": "/",
+        "verb": "post"
+      }
+    },
+    "getByTenantId": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "pageNo",
+          "type": "Number",
+          "required": false
+        },
+        {
+          "arg": "pageSize",
+          "type": "Number",
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "get enquiry details",
+      "http": {
+        "path": "/",
+        "verb": "get"
+      }
+    },
+    "updateEnquiry": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "enquiryId",
+          "type": "String",
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "data",
+          "type": "Object",
+          "required": true,
+          "http": {
+            "source": "body"
+          }
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "get enquiry details",
+      "http": {
+        "path": "/:enquiryId",
+        "verb": "put"
+      }
+    },
+    "updateEnquiryRates": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "refId",
+          "type": "String",
+          "required": true
+        },
+        {
+          "arg": "ratesData",
+          "type": "Object",
+          "required": true,
+          "http": {
+            "source": "body"
+          }
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+        
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "updating target rates.",
+      "http": {
+        "path": "/update-rates/:refId",
+        "verb": "put"
+      }
+    },
+    "getDetailById": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "enquiryId",
+          "type": "String",
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "get enquiry details",
+      "http": {
+        "path": "/:enquiryId",
+        "verb": "get"
+      }
+    },
+    "addSupplierRates": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "enquiryId",
+          "type": "String",
+          "required": true
+        },
+        {
+          "arg": "data",
+          "type": "Object",
+          "required": true,
+          "http": {
+            "source": "body"
+          }
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "Adding supplier rate",
+      "http": {
+        "path": "/:enquiryId/supplier-rate",
+        "verb": "post"
+      }
+    },
+    "getSupplierRates": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "enquiryId",
+          "type": "String",
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "Getting supplier rate",
+      "http": {
+        "path": "/:enquiryId/supplier-rate",
+        "verb": "get"
+      }
+    },
+    "getSupplierRatesById": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "supplierRateId",
+          "type": "String",
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "get supplier rate details",
+      "http": {
+        "path": "/supplier-rate/:supplierRateId",
+        "verb": "get"
+      }
+    },
+    "confirmSupplierRates": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "supplierRateId",
+          "type": "String",
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "Getting supplier rate",
+      "http": {
+        "path": "/supplier-rate/:supplierRateId/confirm",
+        "verb": "put"
+      }
+    },
+    "quote": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "quoteInfo",
+          "type": "Object",
+          "required": true,
+          "http": {
+            "source": "body"
+          }
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "Getting supplier rate",
+      "http": {
+        "path": "/quote",
+        "verb": "post"
+      }
+    },
+    "broadcast": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "broadcastData",
+          "required": true,
+          "http": {
+            "source": "body"
+          },
+          "description": "data to broadcast to agents"
+        },
+        {
+          "arg": "x-keeboot-tid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-uid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": true
+        },
+        {
+          "arg": "x-keeboot-eid",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        },
+        {
+          "arg": "x-keeboot-apt",
+          "type": "string",
+          "http": {
+            "source": "header"
+          },
+          "required": false
+        }
+      ],
+      "returns": {
+        "root": true,
+        "type": "object"
+      },
+      "description": "Getting supplier rate",
+      "http": {
+        "path": "/broadcast",
+        "verb": "post"
+      }
+    }
+  }
+}
